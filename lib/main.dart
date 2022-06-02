@@ -21,6 +21,23 @@ void main()async {
  
   runApp(const MyApp());
 }
+movieload_pro()async{
+   final tmdbWithCustomLogs = TMDB(
+    ApiKeys(apikey, Api_Read_access_token),
+    logConfig: const ConfigLogger(
+      //must be true than only all other logs will be shown
+      showLogs: true,
+      showErrorLogs: true,
+    ),
+  );
+
+   Map South_IndianCinimas = await tmdbWithCustomLogs.v3.movies.getUpcoming();
+   print(South_IndianCinimas);
+  return South_IndianCinimas['results'];
+   
+
+}
+
 
 
 movieload() async {

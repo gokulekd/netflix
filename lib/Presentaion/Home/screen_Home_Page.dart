@@ -3,8 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix/Domain/Core/apis.dart';
 import 'package:netflix/Domain/database_response/database_response.dart';
 import 'package:netflix/Presentaion/Home/widgets/Large_tile_homepage.dart';
-import 'package:netflix/Presentaion/widgets/main_card.dart';
-
 import 'package:netflix/Presentaion/widgets/main_title_card.dart';
 import 'package:netflix/core/colors/Constants.dart';
 
@@ -25,12 +23,10 @@ class Screen_home_screen extends StatefulWidget {
 class _Screen_home_screenState extends State<Screen_home_screen> {
   ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
-
   @override
   void initState() {
     // TODO: implement initState
-      movieload();
-
+    movieload();
   }
 
   @override
@@ -56,7 +52,6 @@ class _Screen_home_screenState extends State<Screen_home_screen> {
                     ListView(
                       children: [
                         large_tile_homepage(index: index),
-                        MainCrdSample(),
                         Main_title_card(
                             TitleName: "Released in the past year",
                             list_name: South_Indian_Cinimas),

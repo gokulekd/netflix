@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:netflix/Presentaion/Fast%20Laugh/widgets/video_list_item.dart';
+import 'package:netflix/core/colors/Constants.dart';
 
 class screen_Fast_laugh extends StatefulWidget {
   const screen_Fast_laugh({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class _screen_Fast_laughState extends State<screen_Fast_laugh> {
         child: PageView(
           scrollDirection: Axis.vertical,
           children: List.generate(
-              10,
+              videos_fastLaugh.length,
               (index) => video_list_item(
                     index: index,
                   )),

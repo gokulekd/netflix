@@ -20,15 +20,36 @@ class large_tile_homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          color: Colors.blue,
-          height: 600,
-          width: double.infinity,
-          child: ClipRRect(
-              child: Image.network(
-                Base_URL+South_Indian_Cinimas[1]['poster_path'],
-            fit: BoxFit.cover,
-          )),
+        FutureBuilder(
+          future: movieload_pro(),
+          builder: (context, AsyncSnapshot<dynamic>movie_data){
+            print(movie_data.data);
+            if(movie_data.data== null){
+             return Container(
+               height: 600,
+               width: double.infinity,
+               child: Center(
+                 child: SizedBox(
+                   height: 50,
+                   width: 50,
+                   child: CircularProgressIndicator()),
+               ));
+            }
+            else{
+                return Container(
+            
+              height: 600,
+              width: double.infinity,
+              child:
+               ClipRRect(
+                  child: Image.network(
+                    Base_URL+movie_data.data[1]['poster_path'],
+                fit: BoxFit.cover,
+              )),
+            );
+            }
+          
+          }
         ),
         Positioned(
             bottom: 0,

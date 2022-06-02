@@ -12,26 +12,32 @@ class Main_title_card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: MainTitle(Name_of_list: TitleName),
-        ),
-        LimitedBox(
-          maxHeight: 200,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: List.generate(
-              list_name.length,
-              (index) {
-                return MainCard(ListName:list_name[index]['poster_path'] );
-              },
+
+
+    return Builder(
+      builder: (context) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: MainTitle(Name_of_list: TitleName),
             ),
-          ),
-        )
-      ],
+            LimitedBox(
+              maxHeight: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: List.generate(
+                  list_name.length,
+                  (index) {
+                    return MainCard(ListName:list_name[index]['poster_path'] );
+                  },
+                ),
+              ),
+            )
+          ],
+        );
+      }
     );
   }
 }
