@@ -23,7 +23,7 @@ class large_tile_homepage extends StatelessWidget {
         FutureBuilder(
           future: movieload_pro(),
           builder: (context, AsyncSnapshot<dynamic>movie_data){
-            print(movie_data.data);
+         
             if(movie_data.data== null){
              return Container(
                height: 600,

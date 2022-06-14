@@ -44,7 +44,7 @@ class _video_list_itemState extends State<video_list_item> {
     
     return Stack(
       children: [
-        Container(color: Colors.accents[widget.index % Colors.accents.length],
+        SizedBox(
         child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: <Widget>[

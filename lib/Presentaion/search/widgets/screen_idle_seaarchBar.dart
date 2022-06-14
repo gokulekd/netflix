@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:netflix/core/colors/Constants.dart';
 import 'package:netflix/core/colors/Strings.dart';
@@ -35,17 +33,21 @@ class TopsearchItemWidgetTile extends StatelessWidget {
           height: size.width * 0.20,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.network(
+            child:
+             Image.network(
               Base_URL+Tensed_dramas[index]["backdrop_path"].toString(),
             ),
           ),
         ),
         Expanded(
-          child: Text(
-           Tensed_dramas[index]["title"],
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Text(
+             Tensed_dramas[index]["title"],
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
         IconButton(

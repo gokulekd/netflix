@@ -12,7 +12,7 @@ class ScreenMainPage extends StatelessWidget {
     Screen_home_screen(),
     const screen_new_and_hot(),
     const screen_Fast_laugh(),
-    const screen_search(),
+   screen_search(),
     screen_downloads()
   ];
 

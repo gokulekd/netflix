@@ -3,6 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix/Domain/Core/apis.dart';
 import 'package:netflix/Domain/database_response/database_response.dart';
 import 'package:netflix/Presentaion/Home/widgets/Large_tile_homepage.dart';
+import 'package:netflix/Presentaion/Home/widgets/categories.dart';
+import 'package:netflix/Presentaion/Home/widgets/homepag_first_card.dart';
 import 'package:netflix/Presentaion/widgets/main_title_card.dart';
 import 'package:netflix/core/colors/Constants.dart';
 
@@ -52,9 +54,7 @@ class _Screen_home_screenState extends State<Screen_home_screen> {
                     ListView(
                       children: [
                         large_tile_homepage(index: index),
-                        Main_title_card(
-                            TitleName: "Released in the past year",
-                            list_name: South_Indian_Cinimas),
+                      homepage_First_card(TitleName: "Realsesd In The Past Year", list_name: South_Indian_Cinimas),
                         Main_title_card(
                             TitleName: "Trending Now", list_name: Trending_Now),
                         Number_tile_widget(Listrecived: Top_10_TV_shows),
@@ -69,7 +69,7 @@ class _Screen_home_screenState extends State<Screen_home_screen> {
                     scrollNotifier.value == true
                         ? Container(
                             color: KBlack.withOpacity(0.5),
-                            height: 80,
+                            height: 104,
                             width: double.infinity,
                             child: Column(
                               children: [
@@ -123,10 +123,18 @@ class _Screen_home_screenState extends State<Screen_home_screen> {
                                       "Movies",
                                       style: ScrollViewTextStyle_HomePage,
                                     ),
-                                    Text(
-                                      "Categories",
-                                      style: ScrollViewTextStyle_HomePage,
-                                    ),
+                                    TextButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (ctx) => Categories());
+                                        },
+                                        child: Text(
+                                          "Categories",
+                                          style: TextStyle(
+                                              color: Kwhite,
+                                              fontWeight: FontWeight.bold),
+                                        ))
                                   ],
                                 )
                               ],
